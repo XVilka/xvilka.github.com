@@ -91,26 +91,24 @@
         <h3>Get source</h3>
         <p>Stay up to date by following XVilka's git repository:</p>
 
-<code>
+<pre class="code">
 git clone http://github.com/XVilka/2ndboot-ng.git
-</code>
+</pre>
 
         <h3>1. Download your device kernel, unpack this and create configs and headers</h3>
 
-<code>
+<pre class="code">
 make mapphone_defconfig
 make headers_install ARCH=arm INSTALL_HDR_PATH=~/build/kern_h/
-
-</code>
+</pre>
                     <p>
                         We have Motorola Milestone - so processor chip is TI OMAP3430 - ARM Cortex a8 (armv7-a arch)
                         (<a href="http://en.wikipedia.org/wiki/ARM_architecture">http://en.wikipedia.org/wiki/ARM_architecture</a>). So you need use configs with -omap3430 suffix.
                         Set enviroment variable for building options:
 </p>
-<code>
+<pre class="code">
 export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
-
-</code>
+</pre>
 
                         <h4>2. Download crosstool-ng</h4>
 
@@ -118,36 +116,32 @@ export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
                         <p>Unpack, build (you need for: make,install,bash,cut,sed,grep,gcc,awk,bison,flex,automake,libtool,stat,
                             wget,cvs,patch,tar,gzip,bzip2,lzma,readlink,ncurses, mpfr-dev, gmp-dev)</p>
 
-<code>
+<pre class="code">
 .configure
 make
 make install
-
-</code>
+</pre>
 
                         <h4>3. Create dir toolchain-android</h4>
 
                         <p>cd to it and copy files:</p>
 
-<code>
+<pre class="code">
 XVilka-crosstool-&lt;suffix&gt;.config in .config
 XVilka-uClibc-&lt;suffix&gt;.config in uClibc.config
-
-</code>
+</pre>
                         <p>and then run:</p>
 
-<code>
+<pre class="code">
 ct-ng menuconfig
-
-</code>
+</pre>
 
                         <p>
                             change anything, if you need, and save to .config, then exec:</p>
 
-<code>
+<pre class="code">
 ct-ng build
-
-</code>
+</pre>
 
 
                         <h4>4. Done! We have toolchain in build/x-tools.</h4>
@@ -155,58 +149,52 @@ ct-ng build
                         <p>All tools have this triplet: arm-android-linux-uclibsgnueabi-*
                             <br />just add them in PATH:</p>
 
-<code>
+<pre class="code">
 export PATH=$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/bin:$PATH
 export CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
 export KERNEL_CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
 export CFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
-
-</code>
+</pre>
 
                         <p>So we can run:</p>
 
-<code>
+<pre class="code">
 arm-android-linux-uclibcgnueabi-gcc
-
-</code>
+</pre>
 
                         <p>
                             Also we have system root directory in:
                         </p>
 
-<code>
+<pre class="code">
 $HOME/build/x-tools/arm-android-linux-uclibcgnueabi/arm-android-linux-uclibcgnueabi/sys-root
-
-</code>
+</pre>
 
                         <p>For some reasons we just copy it in</p>
 
-<code>
+<pre class="code">
 $HOME/build/cross/sys-root
 chmod +w sys-root
 chmod +w sys-root/usr
 chmod +w sys-root/usr/lib
-
-</code>
+</pre>
 
 
                         <h4>6. Build kernel</h4>
 
-<code>
+<pre class="code">
 make mapphone_defconfig
 make -f kernel/kernel.mk
-
-</code>
+</pre>
 
 
                         <h4>7. Building module</h4>
 
                         <p>In directory hbootmod run:</p>
 
-<code>
+<pre class="code">
 make -C $HOME/build/kernel M=`pwd` modules
-
-</code>
+</pre>
 
                         <!-- end of main content--></p>
 

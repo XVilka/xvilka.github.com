@@ -42,7 +42,7 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
     text-transform: uppercase;
 }
 #header #nottoper .nav li a:hover { background: url('nav_bg_hover.gif') repeat-x scroll 0pt 0pt rgb(180, 191, 174); color: rgb(67, 68, 70); }
-#body { width: 872px; margin: 17px auto 0pt; padding-bottom: 50px; padding-left: 15px; height: 100%; }
+#body { width: 872px; margin: 17px auto 0pt; padding-bottom: 15px; padding-left: 15px; height: 100%; }
 #left { width: 750px; float: left; padding: 8px 0pt 50px; }
 #left p { line-height: 22px; font-weight: normal; color: rgb(0, 0, 0); background-color: inherit; margin: 0pt 0pt 10px; border: medium none; }
 /*
@@ -61,7 +61,7 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
 	border-left: 1px solid black;
 }
 
-code {
+.code {
   font-size: 1.3em;
   background: #eee;
   border: 1px solid #ddd;
