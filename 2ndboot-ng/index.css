@@ -1,4 +1,4 @@
-html, body { padding: 0pt; margin: 0pt; background: rgb(3, 3, 3); font-family: serif,Arial,Helvetica,sans-serif; height: 100%; }
+html, body { padding: 0pt; margin: 0pt; background: url('bg.png') repeat-x scroll rgb(3, 3, 3); font-family: serif,Arial,Helvetica,sans-serif; height: 100%; }
 div, h1, h2, h3, h4, form, label, input, textarea, img, span { }
 p, li { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0.7em; }
 #header { width: 100%; margin: 0pt auto; position: relative; padding: 0pt; height: 130px; }
