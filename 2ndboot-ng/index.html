@@ -55,8 +55,7 @@
 
     <div id="left">
         <!-- main content -->
-        <a name="about"> </a><h3>About:</h3>
-        
+        <a name="about"> </a><h2>About:</h2>
         <p>This is bootloader, which can boot custom boot image even milestone has locked bootloader.</p>
         <p>It consist from:</p>
         <ul>
@@ -66,15 +65,13 @@
                 card, USB booting, and network booting</li>
         </ul>
 
-
-        <a name="preq"> </a><h3>Prequisities</h3>
-        
-        <h4>OMAP3430 Reference Manual</h4>
+        <a name="preq"> </a><h2>Prequisities</h2>
+        <h3>OMAP3430 Reference Manual</h3>
         <a href="http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf">http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf</a>
-        <h4>Linux Kernel Programming Book</h4>
+        <h3>Linux Kernel Programming Book</h3>
         <a href="http://www.xvilka.org/files/ldd3_pdf.tar.bz2">http://www.xvilka.org/files/ldd3_pdf.tar.bz2</a>
 
-        <h4>For creating this program we need also read these resourses</h4>
+        <h3>For creating this program we need also read these resourses</h3>
 
 <div class="links">
         <a href="http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x">http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x</a>
@@ -93,18 +90,18 @@
         <a href="http://omappedia.org/wiki/Linux_Getting_Started">http://omappedia.org/wiki/Linux_Getting_Started</a>
         <a href="http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/">http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/</a>
 </div>
-        <a name="build"></a><h3>BUILDING 2NDBOOT-NG</h3>
+        <a name="build"></a><h2>BUILDING 2NDBOOT-NG</h2>
 
         <p>This is small recipe how you can build 2ndboot-ng</p>
         
-        <h4>Get source</h4>
+        <h3>Get source</h3>
         <p>Stay up to date by following XVilka's git repository:</p>
 
 <code>
 git clone http://github.com/XVilka/2ndboot-ng.git
 </code>
 
-        <h4>1. Download your device kernel, unpack this and create configs and headers</h4>
+        <h3>1. Download your device kernel, unpack this and create configs and headers</h3>
 
 <code>
 make mapphone_defconfig
