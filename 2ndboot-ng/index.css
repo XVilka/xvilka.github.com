@@ -38,7 +38,7 @@ div, h1, h2, h3, h4, p, form, label, input, textarea, img, span {  }
     text-transform: uppercase;
 }
 #header #nottoper .nav li a:hover { background: url('nav_bg_hover.gif') repeat-x scroll 0pt 0pt rgb(180, 191, 174); color: rgb(67, 68, 70); }
-#body { width: 872px; margin: 17px auto 0pt; background: url('body_bg2.gif') repeat-y scroll 0pt 0pt transparent; padding-bottom: 50px; height: 100%; }
+#body { width: 872px; margin: 17px auto 0pt; padding-bottom: 50px; height: 100%; }
 #left { width: 750px; float: left; padding: 8px 0pt 50px; }
 #left p { line-height: 22px; font-weight: normal; color: rgb(0, 0, 0); background-color: inherit; margin: 0pt 0pt 10px; border: medium none; }
 /*
@@ -51,7 +51,7 @@ div, h1, h2, h3, h4, p, form, label, input, textarea, img, span {  }
 	position: relative; 
 	min-height: 100%; 
 	background: white;
-	width: 700px;
+	width: 872px;
 	margin: 0 auto;
 	border-right: 2px solid black;
 	border-bottom: 2px solid black;
