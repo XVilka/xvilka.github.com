@@ -1,5 +1,6 @@
 html, body { padding: 0pt; margin: 0pt; background: rgb(3, 3, 3); font-family: serif,Arial,Helvetica,sans-serif; height: 100%; }
-div, h1, h2, h3, h4, p, form, label, input, textarea, img, span { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0.7em;}
+div, h1, h2, h3, h4, form, label, input, textarea, img, span { }
+p { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0.7em; }
 #header { width: 100%; margin: 0pt auto; position: relative; padding: 0pt; height: 130px; }
 #header #topper { width: 872px; margin: 0pt auto;  background-repeat: no-repeat; background-position: 2% 0pt; height: 70px; }
 #header #topper .lang { width: 100%; text-align: right; padding-top: 5px; }
