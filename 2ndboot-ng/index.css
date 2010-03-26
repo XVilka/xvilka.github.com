@@ -51,7 +51,7 @@ p, li { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0
 #container { 
 	position: relative; 
 	min-height: 100%; 
-	background: url('body_bg.gif') repeat-x scroll 0pt 0pt rgb(255, 255, 255);
+	background: /* url('body_bg.gif') repeat-x scroll 0pt 0pt */ rgb(255, 255, 255);
 	width: 872px;
 	margin: 0 auto;
 	border-right: 1px solid black;
