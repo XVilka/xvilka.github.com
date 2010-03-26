@@ -1,9 +1,11 @@
 html, body { padding: 0pt; margin: 0pt; background: url('bg.png') repeat rgb(3, 3, 3); font-family: serif,Arial,Helvetica,sans-serif; height: 100%; }
 div, h1, h2, h3, h4, form, label, input, textarea, img, span { }
 p, li { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0.7em; }
+.a { color: #0E0676; }
+
 #header { width: 100%; margin: 0pt auto; position: relative; padding: 0pt; height: 120px; }
 #header #topper { width: 872px; margin: 0pt auto;  background-repeat: no-repeat; background-position: 2% 0pt; height: 70px; }
-#header #topper .lang { width: 100%; text-align: right; padding-top: 5px; font-family: verdana, arial, sans-serif; font-size: 0.5em; color: #ccc; }
+#header #topper .lang { width: 100%; text-align: right; padding-top: 5px; padding-right: 5px; font-family: verdana, arial, sans-serif; font-size: 0.7em; color: #999; }
 #header #topper .lang img { border: 0pt none; }
 #header #topper h1 { font-family: georgia; color: #888; letter-spacing: -3px; text-shadow: #0c0c0c 2px 2px 1px; margin: 0pt; position: absolute; top: 0pt; height: 30px; padding: 10px 0pt 0pt 80px; font-weight: bold; font-size: 3em; }
 #header #topper h1 a { display: block; text-decoration: none; color: black; }
