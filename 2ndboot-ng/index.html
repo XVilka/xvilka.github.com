@@ -61,28 +61,6 @@
             <li>universal bootloader, which can uses many places for booting: boot image file from nand flash, boot image from SD
                 card, USB booting, and network booting</li>
         </ul>
-        <a name="preq"></a><h2>Prequisities</h2>
-        OMAP3430 Reference Manual<br />
-        <a href="http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf">http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf</a><br />
-        Linux Kernel Programming Book <br />
-        <a href="http://www.xvilka.org/files/ldd3_pdf.tar.bz2">http://www.xvilka.org/files/ldd3_pdf.tar.bz2</a><br />
-        For creating this program we need also read these resourses:
-<div class="links">
-        <a href="http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x">http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x</a>
-        <a href="http://wiki.omap.com/index.php/Main_Page">http://wiki.omap.com/index.php/Main_Page</a>
-        <a href="https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting">https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting</a>
-        <a href="http://elinux.org/Kernel_XIP_Instructions_For_OMAP">http://elinux.org/Kernel_XIP_Instructions_For_OMAP</a>
-        <a href="http://lists.infradead.org/pipermail/barebox/2009-December/000162.html">http://lists.infradead.org/pipermail/barebox/2009-December/000162.html</a>
-        <a href="http://209.85.135.132/search?q=cache:etUMZlUjOZkJ:not.freedsoftware.org/lemote-misc/git-mirror/linux_loongson.git/arm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru">rm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru</a>
-        <a href="http://omappedia.org/wiki/Main_Page">http://omappedia.org/wiki/Main_Page</a>
-        <a href="http://omappedia.org/wiki/Bootloader_Project">http://omappedia.org/wiki/Bootloader_Project</a>
-        <a href="http://elinux.org/OMAP_Power_Management">http://elinux.org/OMAP_Power_Management</a>
-        <a href="http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram">http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram</a>
-        <a href="http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting">http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting</a>
-        <a href="http://omappedia.org/wiki/Linux_OMAP_Kernel_Project">http://omappedia.org/wiki/Linux_OMAP_Kernel_Project</a>
-        <a href="http://omappedia.org/wiki/Linux_Getting_Started">http://omappedia.org/wiki/Linux_Getting_Started</a>
-        <a href="http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/">http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/</a>
-</div>
         <a name="build"></a><h2>Building 2ndboot-ng</h2>
 
         <p>This is small recipe how you can build 2ndboot-ng</p>
@@ -194,6 +172,28 @@ make -f kernel/kernel.mk
 <pre class="code">
 make -C $HOME/build/kernel M=`pwd` modules
 </pre>
+<a name="preq"></a><h2>Prequisities</h2>
+        OMAP3430 Reference Manual<br />
+        <a href="http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf">http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf</a><br />
+        Linux Kernel Programming Book <br />
+        <a href="http://www.xvilka.org/files/ldd3_pdf.tar.bz2">http://www.xvilka.org/files/ldd3_pdf.tar.bz2</a><br />
+        For creating this program we need also read these resourses:
+<div class="links">
+        <a href="http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x">http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x</a>
+        <a href="http://wiki.omap.com/index.php/Main_Page">http://wiki.omap.com/index.php/Main_Page</a>
+        <a href="https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting">https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting</a>
+        <a href="http://elinux.org/Kernel_XIP_Instructions_For_OMAP">http://elinux.org/Kernel_XIP_Instructions_For_OMAP</a>
+        <a href="http://lists.infradead.org/pipermail/barebox/2009-December/000162.html">http://lists.infradead.org/pipermail/barebox/2009-December/000162.html</a>
+        <a href="http://209.85.135.132/search?q=cache:etUMZlUjOZkJ:not.freedsoftware.org/lemote-misc/git-mirror/linux_loongson.git/arm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru">rm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru</a>
+        <a href="http://omappedia.org/wiki/Main_Page">http://omappedia.org/wiki/Main_Page</a>
+        <a href="http://omappedia.org/wiki/Bootloader_Project">http://omappedia.org/wiki/Bootloader_Project</a>
+        <a href="http://elinux.org/OMAP_Power_Management">http://elinux.org/OMAP_Power_Management</a>
+        <a href="http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram">http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram</a>
+        <a href="http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting">http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting</a>
+        <a href="http://omappedia.org/wiki/Linux_OMAP_Kernel_Project">http://omappedia.org/wiki/Linux_OMAP_Kernel_Project</a>
+        <a href="http://omappedia.org/wiki/Linux_Getting_Started">http://omappedia.org/wiki/Linux_Getting_Started</a>
+        <a href="http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/">http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/</a>
+</div>
 
                         <!-- end of main content--></p>
 
