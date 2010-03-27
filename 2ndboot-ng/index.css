@@ -49,8 +49,8 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
 #right { width: 200px; padding: 3px 0pt 0pt; float: right; }
 #right h3 { display: block; height: 19px; font-size: 18px; font-weight: normal; color: rgb(0, 0, 0); background-color: inherit; border-bottom: 2px solid rgb(231, 231, 231); margin: 0pt 0pt 11px; }
 */
-#footer { background: url('footer_bg.gif') repeat-x scroll 0pt 0pt transparent; width: 100%; height: 50px; position: absolute; bottom: 0pt; margin: 0pt auto; }
-#footer .copyright { text-align: right; padding: 10px 20px 0pt 0pt; font: 10px Arial,Helvetica,sans-serif; color: rgb(176, 212, 78); }
+#footer { background: url('footer_bg.gif') repeat-x scroll 0pt 0pt transparent; width: 100%; height: 30px; position: absolute; bottom: 0pt; margin: 0pt auto; }
+#footer .copyright { text-align: right; padding: 10px 10px 0pt 0pt; font: 10px Arial,Helvetica,sans-serif; color: rgb(176, 212, 78); }
 #container { 
 	position: relative; 
 	min-height: 100%; 
