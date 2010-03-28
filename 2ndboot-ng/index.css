@@ -70,10 +70,12 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
   margin: 4px;
 }
 
-.links a {
+.links a a:hover {
     padding: 2px 0;
     display: block;
     font-family: monospace; 
     font-size: 0.8em; 
     color: #2F465D;
 }
+
+.links a:hover { color: #CE1010; }
