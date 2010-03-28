@@ -52,7 +52,9 @@
 <div id="body">
     <div id="left">
         <!-- main content -->
+        
         <a name="about"></a><h2>About</h2>
+        
         <p>This is bootloader, which can boot custom boot image even milestone has locked bootloader.</p>
         <p>It consist from:</p>
         <ul>
@@ -61,151 +63,126 @@
             <li>universal bootloader, which can uses many places for booting: boot image file from nand flash, boot image from SD
                 card, USB booting, and network booting</li>
         </ul>
+        
         <a name="build"></a><h2>Building 2ndboot-ng</h2>
-
         <p>This is small recipe how you can build 2ndboot-ng</p>
         
-        <h4>Get source</h4>
+        <h4>1. Get the sources</h4>
         <p>Stay up to date by following git repository:</p>
-
-<pre class="code">
-git clone http://github.com/XVilka/2ndboot-ng.git
-</pre>
-
-        <h4>1. Download your device kernel, unpack this and create configs and headers</h4>
-
-<pre class="code">
-make mapphone_defconfig
-make headers_install ARCH=arm INSTALL_HDR_PATH=~/build/kern_h/
-</pre>
-                    <p>
-                        We have Motorola Milestone - so processor chip is TI OMAP3430 - ARM Cortex a8 (armv7-a arch)
-                        (<a href="http://en.wikipedia.org/wiki/ARM_architecture">http://en.wikipedia.org/wiki/ARM_architecture</a>). So you need use configs with -omap3430 suffix.
-                        Set enviroment variable for building options:
-</p>
-<pre class="code">
-export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
-</pre>
-
-                        <h4>2. Download crosstool-ng</h4>
-
-                        <a href="http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool">http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool</a><br />
-                        <p>Unpack, build (you need for: make,install,bash,cut,sed,grep,gcc,awk,bison,flex,automake,libtool,stat,
-                            wget,cvs,patch,tar,gzip,bzip2,lzma,readlink,ncurses, mpfr-dev, gmp-dev)</p>
-
-<pre class="code">
-.configure
-make
-make install
-</pre>
-
-                        <h4>3. Create dir toolchain-android</h4>
-
-                        <p>cd to it and copy files:</p>
-
-<pre class="code">
-XVilka-crosstool-&lt;suffix&gt;.config in .config
-XVilka-uClibc-&lt;suffix&gt;.config in uClibc.config
-</pre>
-                        <p>and then run:</p>
-
-<pre class="code">
-ct-ng menuconfig
-</pre>
-
-                        <p>
-                            change anything, if you need, and save to .config, then exec:</p>
-
-<pre class="code">
-ct-ng build
-</pre>
-
-
-                        <h4>4. Done! We have toolchain in build/x-tools.</h4>
-
-                        <p>All tools have this triplet: arm-android-linux-uclibsgnueabi-*
-                            <br />just add them in PATH:</p>
-
-<pre class="code">
-export PATH=$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/bin:$PATH
-export CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
-export KERNEL_CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
-export CFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
-</pre>
-
-                        <p>So we can run:</p>
-
-<pre class="code">
-arm-android-linux-uclibcgnueabi-gcc
-</pre>
-
-                        <p>
-                            Also we have system root directory in:
-                        </p>
-
-<pre class="code">
-$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/arm-android-linux-uclibcgnueabi/sys-root
-</pre>
-
-                        <p>For some reasons we just copy it in</p>
-
-<pre class="code">
-$HOME/build/cross/sys-root
-chmod +w sys-root
-chmod +w sys-root/usr
-chmod +w sys-root/usr/lib
-</pre>
-
-
-                        <h4>6. Build kernel</h4>
-
-<pre class="code">
-make mapphone_defconfig
-make -f kernel/kernel.mk
-</pre>
-
-
-                        <h4>7. Building module</h4>
-
-                        <p>In directory hbootmod run:</p>
-
-<pre class="code">
-make -C $HOME/build/kernel M=`pwd` modules
-</pre>
-<a name="preq"></a><h2>Prequisities</h2>
-        OMAP3430 Reference Manual<br />
-        <a href="http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf">http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf</a><br />
-        Linux Kernel Programming Book <br />
-        <a href="http://www.xvilka.org/files/ldd3_pdf.tar.bz2">http://www.xvilka.org/files/ldd3_pdf.tar.bz2</a><br />
-        For creating this program we need also read these resourses:
-<div class="links">
-        <a href="http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x">http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x</a>
-        <a href="http://wiki.omap.com/index.php/Main_Page">http://wiki.omap.com/index.php/Main_Page</a>
-        <a href="https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting">https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting</a>
-        <a href="http://elinux.org/Kernel_XIP_Instructions_For_OMAP">http://elinux.org/Kernel_XIP_Instructions_For_OMAP</a>
-        <a href="http://lists.infradead.org/pipermail/barebox/2009-December/000162.html">http://lists.infradead.org/pipermail/barebox/2009-December/000162.html</a>
-        <a href="http://209.85.135.132/search?q=cache:etUMZlUjOZkJ:not.freedsoftware.org/lemote-misc/git-mirror/linux_loongson.git/arm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru">rm/plat-mxc/include/mach/mx31.h+L2CC_BASE_ADDR&cd=5&hl=ru&ct=clnk&gl=ru</a>
-        <a href="http://omappedia.org/wiki/Main_Page">http://omappedia.org/wiki/Main_Page</a>
-        <a href="http://omappedia.org/wiki/Bootloader_Project">http://omappedia.org/wiki/Bootloader_Project</a>
-        <a href="http://elinux.org/OMAP_Power_Management">http://elinux.org/OMAP_Power_Management</a>
-        <a href="http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram">http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram</a>
-        <a href="http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting">http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting</a>
-        <a href="http://omappedia.org/wiki/Linux_OMAP_Kernel_Project">http://omappedia.org/wiki/Linux_OMAP_Kernel_Project</a>
-        <a href="http://omappedia.org/wiki/Linux_Getting_Started">http://omappedia.org/wiki/Linux_Getting_Started</a>
-        <a href="http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/">http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/</a>
-</div>
-
-                        <!-- end of main content--></p>
-
-                </div>
-                <div id="right">
-                    <!-- <h3>News</h3> -->
-                </div>
-            </div>
-            <br clear="both" />
-            <div id="footer">
-                <p class="copyright">© Laibidi al ahdi crew</p>
-            </div>
+        <pre class="code">
+        git clone http://github.com/XVilka/2ndboot-ng.git
+        </pre>
+        
+        <h4>2. Prepare kernel and enviroment</h4>
+        <p>Download your device kernel, unpack this and create configs and headers. You can find all needed kernel sources at <a href="http://www.and-developers.com/motorola_milestone:tools:kernel_sources">and-developes.com</a>
+        Unpack this and run:</p>
+        <pre class="code">
+        make mapphone_defconfig
+        make headers_install ARCH=arm INSTALL_HDR_PATH=$HOME/build/kern_h/
+        </pre>
+        <p>
+        We have Motorola Milestone - so processor chip is TI OMAP3430 - ARM Cortex a8 (armv7-a arch)
+        (<a href="http://en.wikipedia.org/wiki/ARM_architecture">ARM Architectures</a>). So you need use configs with -omap3430 suffix.
+        Set enviroment variable for building options:
+        </p>
+        <pre class="code">
+        export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
+        </pre>
+        
+        <h4>3. Prepare crosstool-ng</h4>
+        <p>Download <a href="http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool">crosstool-ng</a>. 
+        Unpack, build (you need for: make,install,bash,cut,sed,grep,gcc,awk,bison,flex,automake,libtool,stat,wget,cvs,patch,tar,gzip,
+        bzip2,lzma,readlink,ncurses, mpfr-dev, gmp-dev)</p>
+        <pre class="code">
+        hg clone http://ymorin.is-a-geek.org/hg/crosstool-ng
+        cd crosstool-ng
+        .configure
+        make
+        make install
+        </pre>
+        
+        <h4>4. Compiling toolchain</h4>
+        <p>Create dir toolchain-android, cd to it and copy files:</p>
+        <pre class="code">
+        XVilka-crosstool-&lt;suffix&gt;.config in .config
+        XVilka-uClibc-&lt;suffix&gt;.config in uClibc.config
+        </pre>
+        <p>and then run:</p>
+        <pre class="code">
+        ct-ng menuconfig
+        </pre>
+        <p>you can change anything, if needed, and save to .config, then exec:</p>
+        <pre class="code">
+        ct-ng build
+        </pre>
+        
+        <h4>5. Setting up toolchain</h4>
+        <p>Done! We have toolchain in build/x-tools. All tools have this triplet: arm-android-linux-uclibsgnueabi-*; just add them in PATH:</p>
+        <pre class="code">
+        export PATH=$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/bin:$PATH
+        export CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
+        export KERNEL_CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
+        export CFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"
+        </pre>
+        <p>So we can run this to check version of compiled gcc:</p>
+        <pre class="code">
+        arm-android-linux-uclibcgnueabi-gcc --version
+        </pre>
+        <p>Also we have system root directory in:</p>
+        <pre class="code">
+        $HOME/build/x-tools/arm-android-linux-uclibcgnueabi/arm-android-linux-uclibcgnueabi/sys-root
+        </pre>
+        <p>For some reasons we need not use this directory, but work with copy - $HOME/build/cross/sys-root. Also we need to change the permissions:</p>
+        <pre class="code">
+        chmod +w sys-root
+        chmod +w sys-root/usr
+        chmod +w sys-root/usr/lib
+        </pre>
+        
+        <h4>6. Build kernel</h4>
+        <p>In the kernel sources directory run:</p>
+        <pre class="code">
+        make mapphone_defconfig
+        make -f kernel/kernel.mk
+        </pre>
+        
+        <h4>7. Building module</h4>
+        <p>In directory hbootmod run:</p>
+        <pre class="code">
+        make -C $HOME/build/kernel M=`pwd` modules
+        </pre>
+        
+        <a name="preq"></a><h2>Prequisities</h2>
+        
+        <p><a href="http://www.xvilka.org/files/SWPU117D_FinalEPDF_02_18_2010.pdf">Latest OMAP3430 Reference Manual</a></p>
+        <p><a href="http://www.xvilka.org/files/ldd3_pdf.tar.bz2">Linux Kernel Programming Book</a></p>
+        <p>For creating this program we need also read these resourses:</p>
+        <div class="links">
+        <a href="http://omappedia.org/wiki/Main_Page">OMAPpedia</a>
+        <a href="http://wiki.omap.com/index.php/Main_Page">OMAP Wiki</a>
+        <a href="http://omappedia.org/wiki/Bootloader_Project">OMAP Bootloader Project</a>
+        <a href="http://omappedia.org/wiki/Linux_OMAP_Kernel_Project">OMAP Linux Kernel Project</a>
+        <a href="http://omappedia.org/wiki/Linux_Getting_Started">OMAP Linux Getting Started</a>
+        <a href="http://wiki.davincidsp.com/index.php/Secondary_Bootloaders_on_OMAP-L1x">Secondary Bootloaders on OMAP-L1x</a>
+        <a href="https://gforge.ti.com/gf/project/omapzoom/wiki/?pagename=FAQ-7%3A+Zoom-II+Android+NAND+booting">Zoom-II + Android + NAND + booting</a>
+        <a href="http://elinux.org/Kernel_XIP_Instructions_For_OMAP">Kernel XIP Instructions For OMAP</a>
+        <a href="http://lists.infradead.org/pipermail/barebox/2009-December/000162.html">Discussion about boot process</a>
+        <a href="http://elinux.org/OMAP_Power_Management">OMAP Power Management</a>
+        <a href="http://docs.blackfin.uclinux.org/doku.php?id=linux-kernel:drivers:example_on-chip_sram">Example code, running on chip SRAM</a>
+        <a href="http://docs.blackfin.uclinux.org/doku.php?id=bootloaders:u-boot:porting">Porting of U-boot</a>
+        <a href="http://git.openinkpot.org/contrib/reloaded-2.6.git/tree/">Kexec module for OpenInkpot</a>
         </div>
-    </body>
+        
+        <!-- end of main content-->
+	</div>
+    <div id="right">
+		<!-- <h3>News</h3> -->
+	</div>
+</div>
+<br clear="both" />
+<div id="footer">
+	<p class="copyright">&copy; XVilka, Design &copy; Laibidi al ahdi crew</p>
+</div>
+</div>
+</body>
 </html>
