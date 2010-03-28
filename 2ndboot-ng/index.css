@@ -73,5 +73,7 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
 .links a {
     padding: 2px 0;
     display: block;
-
+    font-family: monospace; 
+    font-size: 0.8em; 
+    color: #2F465D;
 }
