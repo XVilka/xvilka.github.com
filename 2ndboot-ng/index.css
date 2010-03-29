@@ -24,7 +24,8 @@ h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
 }
 
 #header #nottoper .nav li {
-    padding: 0pt 1px 0pt 1px;
+    margin: 0pt 1px 0pt 1px;
+    padding: 0pt 0px 0pt 0px;
     float: left;
     background: url('nav_div.gif') no-repeat scroll right top transparent;
     height: 25px;
