@@ -20,7 +20,7 @@
     <div id="topper">
         <h1>2ndboot-ng</h1>
         <div class="lang">
-            <a href="http://xvilka.github.com/2ndboot-ng">ENG</a> | <a href="http://xvilka.github.com/2ndboot-ng">RUS</a>
+            <a href="http://xvilka.github.com/2ndboot-ng">ENG</a> | <a href="http://xvilka.github.com/2ndboot-ng/index_ru.html">RUS</a>
         </div>
     </div>
     <div id="nottoper">
@@ -59,32 +59,31 @@
         <p>Download your device kernel, unpack this and create configs and headers. You can find all needed kernel sources at <a href="http://www.and-developers.com/motorola_milestone:tools:kernel_sources">and-developes.com</a>
         Unpack this and run:</p>
         <pre class="code">
-        make mapphone_defconfig
-        make headers_install ARCH=arm INSTALL_HDR_PATH=$HOME/build/kern_h/</pre>
+make mapphone_defconfig
+make headers_install ARCH=arm INSTALL_HDR_PATH=$HOME/build/kern_h/</pre>
         <p>
         We have Motorola Milestone - so processor chip is TI OMAP3430 - ARM Cortex a8 (armv7-a arch)
         (<a href="http://en.wikipedia.org/wiki/ARM_architecture">ARM Architectures</a>). So you need use configs with -omap3430 suffix.
         Set enviroment variable for building options:
         </p>
-        <pre class="code">
-        export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"</pre>
+        <pre class="code">export _XXCFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"</pre>
         
         <h4>3. Prepare crosstool-ng</h4>
         <p>Download <a href="http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool">crosstool-ng</a>. 
         Unpack, build (you need for: make,install,bash,cut,sed,grep,gcc,awk,bison,flex,automake,libtool,stat,wget,cvs,patch,tar,gzip,
         bzip2,lzma,readlink,ncurses, mpfr-dev, gmp-dev)</p>
         <pre class="code">
-        hg clone http://ymorin.is-a-geek.org/hg/crosstool-ng
-        cd crosstool-ng
-        .configure
-        make
-        make install</pre>
+hg clone http://ymorin.is-a-geek.org/hg/crosstool-ng
+cd crosstool-ng
+.configure
+make
+make install</pre>
         
         <h4>4. Compiling toolchain</h4>
         <p>Create dir toolchain-android, cd to it and copy files:</p>
         <pre class="code">
-        XVilka-crosstool-&lt;suffix&gt;.config in .config
-        XVilka-uClibc-&lt;suffix&gt;.config in uClibc.config</pre>
+XVilka-crosstool-&lt;suffix&gt;.config in .config
+XVilka-uClibc-&lt;suffix&gt;.config in uClibc.config</pre>
         <p>and then run:</p>
         <pre class="code">ct-ng menuconfig</pre>
         <p>you can change anything, if needed, and save to .config, then exec:</p>
@@ -93,37 +92,37 @@
         <h4>5. Setting up toolchain</h4>
         <p>Done! We have toolchain in build/x-tools. All tools have this triplet: arm-android-linux-uclibsgnueabi-*; just add them in PATH:</p>
         <pre class="code">
-        export PATH=$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/bin:$PATH
-        export CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
-        export KERNEL_CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
-        export CFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"</pre>
+export PATH=$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/bin:$PATH
+export CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
+export KERNEL_CROSS_COMPILE=arm-android-linux-uclibcgnueabi-
+export CFLAGS=" -march=armv7-a -mtune=cortex-a8 -mfpu=neon"</pre>
         <p>So we can run this to check version of compiled gcc:</p>
         <pre class="code">arm-android-linux-uclibcgnueabi-gcc --version</pre>
         <p>Also we have system root directory in:</p>
-        <pre class="code">
-        $HOME/build/x-tools/arm-android-linux-uclibcgnueabi/arm-android-linux-uclibcgnueabi/sys-root</pre>
+        <pre class="code">$HOME/build/x-tools/arm-android-linux-uclibcgnueabi/arm-android-linux-uclibcgnueabi/sys-root</pre>
         <p>For some reasons we need not use this directory, but work with copy - $HOME/build/cross/sys-root. Also we need to change the permissions:</p>
         <pre class="code">
-        chmod +w sys-root
-        chmod +w sys-root/usr
-        chmod +w sys-root/usr/lib</pre>
+chmod +w sys-root
+chmod +w sys-root/usr
+chmod +w sys-root/usr/lib</pre>
         
         <h4>6. Build kernel</h4>
         <p>In the kernel sources directory run:</p>
         <pre class="code">
-        make mapphone_defconfig
-        make -f kernel/kernel.mk</pre>
+make mapphone_defconfig
+make -f kernel/kernel.mk</pre>
         
         <h4>7. Building module</h4>
         <p>In directory hbootmod run:</p>
         <pre class="code">make -C $HOME/build/kernel M=`pwd` modules</pre>
+        <p>Also we can use automatic build script from the root of 2ndboot-ng.</p>
         
         <a name="develop"></a><h2>Developing</h2>
         
         <p>At this moment 2ndboot-ng is under heavily development. So we have a lot of plans. They are:</p>
         <p>1. Compile and test kernel module hbootmod - (we need to change memory remapping functions for OMAP3430 platform, 
         see build_l1_table() function in hboot.c). For use processor specific features we can see cpu_v7_ functions from proc_v7.S from linux kernel.
-        Also we need to rewrite buffer memory allocating functions to be more portable and tiny (make building modules symply by command "make")</p>
+        Also we need to rewrite buffer memory allocating functions to be more portable and tiny.</p>
         <p>2. Rewrite userspace tool and test it on stock boot.img</p>
         <p>3. Rewrite bootloader (or port u-boot) to create custom booting service:
 			<ul>
