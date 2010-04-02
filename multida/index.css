@@ -1,0 +1,82 @@
+html, body { padding: 0pt; margin: 0pt; background: url('bg.png') repeat rgb(3, 3, 3); font-family: serif,Arial,Helvetica,sans-serif; height: 100%; }
+div, h1, h2, h3, h4, form, label, input, textarea, img, span { }
+p, li { line-height: 17px; font-family: verdana, arial, sans-serif; font-size: 0.7em; }
+a { color: #4183c4; text-decoration: none; }
+a:hover { color: #4183c4; text-decoration: underline; }
+h2 { border-bottom: 1px dotted #aaa; margin-bottom: 10px; margin-top: 15px; }
+
+
+#header { width: 100%; margin: 0pt auto; position: relative; padding: 0pt; height: 120px; }
+#header #topper { width: 872px; margin: 0pt auto;  background-repeat: no-repeat; background-position: 2% 0pt; height: 70px; }
+#header #topper .lang { width: 95%; text-align: right; padding-top: 5px;  font-family: monospace; font-size: 1.0em; color: #2F465D; }
+#header #topper .lang img { border: 0pt none; }
+#header #topper .lang a { text-decoration: none; font-family: monospace; font-size: 1.0em; color: #2F465D; }
+#header #topper h1 { font-family: georgia; color: #4183c4; letter-spacing: -3px; text-shadow: #0c0c0c 2px 2px 1px; margin: 0pt; position: absolute; top: 0pt; height: 30px; padding: 10px 0pt 0pt 80px; font-weight: bold; font-size: 3em; }
+#header #topper h1 a { display: block; text-decoration: none; color: black; }
+#header #nottoper { text-align: center; position: absolute; height: 25px; top: 78px; width: 100%; }
+
+#header #nottoper .nav {
+    list-style-type: none; margin: 0pt auto;
+    background: url('nav_div.gif') no-repeat scroll left top transparent;
+    text-align: center;
+    padding: 0 auto;
+    width: 820px;
+}
+
+#header #nottoper .nav li {
+    margin: 0pt 1px 0pt 1px;
+    padding: 0pt 0px 0pt 0px;
+    float: left;
+    background: url('nav_div.gif') no-repeat scroll right top transparent;
+    height: 25px;
+    width: 200px;
+}
+
+#header #nottoper .nav li a { 
+    display: block;
+    background: url('nav_bg.gif') repeat-x scroll 0pt 0pt rgb(1, 1, 1);
+    padding: 0pt 18px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 25px;
+    color: rgb(1, 1, 2);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#header #nottoper .nav li a:hover { background: url('nav_bg_hover.gif') repeat-x scroll 0pt 0pt rgb(180, 191, 174); color: rgb(67, 68, 70); }
+#body { width: 872px; margin: 17px auto 0pt; padding-bottom: 50px; padding-left: 15px; height: 100%; }
+#left { width: 750px; float: left; padding: 8px 0pt 50px; }
+#left p { line-height: 22px; font-weight: normal; color: rgb(0, 0, 0); background-color: inherit; margin: 0pt 0pt 10px; border: medium none; }
+/*
+#right { width: 200px; padding: 3px 0pt 0pt; float: right; }
+#right h3 { display: block; height: 19px; font-size: 18px; font-weight: normal; color: rgb(0, 0, 0); background-color: inherit; border-bottom: 2px solid rgb(231, 231, 231); margin: 0pt 0pt 11px; }
+*/
+#footer { background: url('footer_bg.gif') repeat-x scroll 0pt 0pt transparent; width: 100%; height: 30px; position: absolute; bottom: 0pt; margin: 0pt auto; padding: 0pt auto;}
+#footer .copyright { text-align: right; padding: 5px 5px 0pt 0pt; margin: 0pt auto; font: 10px Arial,Helvetica,sans-serif; color: #4183c4; }
+#container { 
+	position: relative; 
+	min-height: 100%; 
+	background: url('body_bg.gif') repeat-x scroll 0pt 0pt rgb(255, 255, 255);
+	width: 872px;
+	margin: 0 auto;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+.code {
+  font-size: 1em;
+  background: #eee;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  margin: 4px;
+}
+
+.links a a:hover {
+    padding: 2px 0;
+    display: block;
+    font-family: monospace; 
+    font-size: 0.7em; 
+    color: #2F465D;
+}
+
+.links a:hover { color: #CE1010; }
